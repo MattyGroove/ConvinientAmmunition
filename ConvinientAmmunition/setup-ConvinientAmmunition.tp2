@@ -1,0 +1,68 @@
+// --------------------------------------------
+// Mod setup
+// --------------------------------------------
+BACKUP ~ConvinientAmmunition/backup~
+AUTHOR ~freche~
+VERSION ~1.0~
+
+
+BEGIN ~Convinient Ammunition~
+
+/* ADD NEW ITEMS */
+
+COPY ~ConvinientAmmunition/itm/quiv01CA.itm~ ~override~
+	SAY 0xC ~Quiver of Plenty~
+	SAY 0x54 ~A magical quiver that never seems to run out of arrows.
+
+
+STATISTICS:
+
+Equipped abilities:
+- Unlimited normal arrows 
+
+Weight: 0
+~
+
+COPY ~ConvinientAmmunition/itm/quiv02CA.itm~ ~override~
+	SAY 0xC ~Case of Plenty~
+	SAY 0x54 ~A magical case filled with crossbow bolts.
+
+
+STATISTICS:
+
+Equipped abilities:
+- Unlimited normal bolts
+
+Weight: 0
+~
+
+COPY ~ConvinientAmmunition/itm/quiv05CA.itm~ ~override~
+	SAY 0xC ~Bag of Plenty~
+	SAY 0x54 ~A magical bag, always filled with sling bullets.
+
+
+STATISTICS:
+
+Equipped abilities:
+- Unlimited normal sling bullets
+
+Weight: 0
+~
+
+/* ADD NEW AMMO BELT */
+COPY_EXISTING ~bag05.itm~ ~override/bag05CA.itm~
+
+// need some storage for it
+COPY ~ConvinientAmmunition/sto/bag05CA.sto~ ~override~
+
+
+/* PATCH STORE */
+
+COPY_EXISTING ~taerum.sto~ ~override~	//(Taerum) Thunderhammer Smithy
+	ADD_STORE_ITEM ~bag05CA~ AFTER ~BULL02~ #0 #0 #0 ~IDENTIFIED~ #1 //Ammo Belt
+	ADD_STORE_ITEM ~quiv05CA~ AFTER ~BULL02~ #0 #0 #0 ~IDENTIFIED~ #10 //Bag of Plenty
+	ADD_STORE_ITEM ~quiv02CA~ AFTER ~BULL02~ #0 #0 #0 ~IDENTIFIED~ #10 //Case of Plenty
+	ADD_STORE_ITEM ~quiv01CA~ AFTER ~BULL02~ #0 #0 #0 ~IDENTIFIED~ #10 //Quiver of Plenty
+BUT_ONLY
+
+
